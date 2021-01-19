@@ -5,6 +5,10 @@ Usage:
 
 `listFiles.py [directory] [output_file.txt]`
 
+# Requirements
+
+Python 3.x
+
 # Source Code
 
 Source code can be found at https://github.com/meemo/list-files
