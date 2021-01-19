@@ -1,15 +1,13 @@
 import os
 import sys
 
-# Lists all files in directory like windows `dir /s /b > output.txt` command and outputs to text file
+# Lists all files in directory like windows command `dir /s /b > output.txt` to a file.
 # Usage: listFiles.py [directory] [output_file.txt]
 
-outputFile = open(str(sys.argv[2]), "w", newline='\n')
-
-sourceDirectory = os.path.join(sys.argv[1])
-
-for root, dirs, files in os.walk(sourceDirectory):
-    for file in files:
-        outputFile.write(os.path.join(root, file) + "\n")
-
-outputFile.close()
+if len(sys.argv) == 3:
+    with open(str(sys.argv[2]), "w", encoding="utf-8", newline="\n") as outputFile:
+        for root, folders, files in os.walk(os.path.join(sys.argv[1])):
+            for file in files:
+                outputFile.write(os.path.join(root, file) + "\n")
+else:
+    print("Incorrect number of parameters. ")
